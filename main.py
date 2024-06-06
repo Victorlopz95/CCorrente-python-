@@ -21,21 +21,27 @@ while opcao < 5:
             dep = float(input("Digite o valor do depósito: "))
             saldo = deposito(saldo, dep)
             selecao.append(opcao)
-            time.append(datahora)
+            time.append(datetime.now().strftime('%d/%m/%y %H:%M:%S'))
             ext.append(dep)
             menu()
         elif opcao == 2:
-            cont = cont + 1
             saq = float(input("Digite o valor do saque: "))
-            saldo = saque(saldo, saq)
-            selecao.append(opcao)
-            time.append(datahora)
-            ext.append(saq)
-            menu()
+            if saq <= saldo:
+                cont = cont + 1
+                saldo = saque(saldo, saq)
+                time.append(datetime.now().strftime('%d/%m/%y %H:%M:%S'))
+                selecao.append(opcao)
+                ext.append(saq)
+                menu()
+            else:
+                print("Saldo insuficiente")
+                menu()
         elif opcao == 3:
             extrato(cont, time, ext, selecao)
+            menu()
         elif opcao == 4:
             consulta(saldo)
+            menu()
         elif opcao == 5:
             print("F I M  D O  P R O G R A M A !")
         else:
