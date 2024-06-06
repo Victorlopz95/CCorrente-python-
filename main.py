@@ -1,3 +1,5 @@
+#Código feito por: Victor Lopes
+
 from datetime import datetime
 from lib_ccorrente import *
 
