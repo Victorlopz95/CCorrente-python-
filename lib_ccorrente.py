@@ -17,9 +17,10 @@ def deposito(saldo, dep):
 def saque(saldo, saq):
     if saldo < saq:
         print("\nSaldo insuficiente")
-    else:
+    elif saldo >= saq:
         print("\nSaque de R$", format(saq, '.2f'), "efeituado com sucesso")
-    return saldo-saq
+        saldo -= saq
+    return saldo
 
 
 def extrato(cont, time, ext, selecao):
